@@ -455,6 +455,17 @@
       <div class="field">
         <label for="apiKey">API key</label>
         <input class="input" id="apiKey" type="password" autocomplete="off" placeholder="Bearer token" required>
+
+        <details>
+          <summary>How do I get my API key?</summary>
+
+          <p class="field-help">
+            Log into the PotatBotat website and in your browser's console, run 
+            <code>copy(localStorage.getItem("authorization"));
+              console.log("API key has been copied to your clipboard");
+            </code>
+          </p>
+        </details>
       </div>
       <label class="check"><input type="checkbox" id="rememberKey"> Remember this key on this device</label>
       <details>
