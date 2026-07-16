@@ -882,10 +882,10 @@
         const text = await execute(`#roulette ${wager} ${state.selectedBet}`);
         const result = parseRoulette(text);
         if (!result) throw new Error('Potat returned an unrecognized roulette result.');
-        if (Number.isFinite(result.balance)) setBalance(result.balance);
-        else if (Number.isFinite(result.delta) && Number.isFinite(state.balance)) setBalance(state.balance + result.delta);
         $('#wheelStatus').innerHTML = '<strong>Wheel in motion</strong><span>Ball released.</span>';
         await spinWheel(result.number);
+        if (Number.isFinite(result.balance)) setBalance(result.balance);
+        else if (Number.isFinite(result.delta) && Number.isFinite(state.balance)) setBalance(state.balance + result.delta);
         const colorLabel = result.color[0].toUpperCase() + result.color.slice(1);
         $('#wheelStatus').innerHTML = '';
         const title = document.createElement('strong'); title.textContent = `${result.number} · ${colorLabel}`;
